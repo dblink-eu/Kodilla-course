@@ -20,19 +20,12 @@ public class TestingMain {
             int a=5;
             int b=3;
             Calculator calc = new Calculator(a,b);
-            int addResult = calc.add();
-            if (addResult==(a+b)) {
+            int addResult = calc.add(5,3);
+            int subResult = calc.subtract(10,7);
+            if ((addResult==8) && (subResult==3)) {
                 System.out.println("Test OK");
             } else {
                 System.out.println("Error");
             }
-
-            int subResult = calc.subtract();
-            if (subResult==(a-b)) {
-                System.out.println("Test OK");
-            } else {
-                System.out.println("Error");
-            }
-
         }
 }

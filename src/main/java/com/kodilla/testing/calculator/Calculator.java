@@ -9,12 +9,12 @@ public class Calculator {
         this.b=b;
     }
 
-    public int add() {
+    public int add(int a, int b) {
         int resultAdd = a+b;
         return resultAdd;
     }
 
-    public int subtract() {
+    public int subtract(int a, int b) {
         int resultSubtract = a-b;
         return resultSubtract;
     }
