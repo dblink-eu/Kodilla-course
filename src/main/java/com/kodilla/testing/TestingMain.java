@@ -6,6 +6,7 @@ import com.kodilla.testing.user.SimpleUser;
 public class TestingMain {
         public static void main(String[] args) {
 
+            /* TDD
             //System.out.println("Moduł 6. Wprowadzenie to testowania oprogramowania");
             SimpleUser simpleUser = new SimpleUser("theForumUser");
 
@@ -28,5 +29,6 @@ public class TestingMain {
             } else {
                 System.out.println("Error");
             }
+        */
         }
 }
