@@ -4,16 +4,14 @@ import java.util.*;
 
 public class OddNumbersExterminator {
 
-    private ArrayList<Integer> oddList = new ArrayList<>();
-
-    public void exterminate (ArrayList<Integer> numbers) {
-        for (int i : numbers) {
-            if (numbers.get(i) % 2 == 0) {
-                oddList.add(i);
+        //mozna static poniewaz klasa nie trzyma zadnego stanu - nie ma pola
+    public static ArrayList<Integer> exterminate (ArrayList<Integer> numbers) {
+        ArrayList<Integer> even = new ArrayList<>();
+        for (Integer i : numbers) {
+            if (i % 2 == 0) {
+                even.add(i);
             }
         }
-    }
-    public ArrayList<Integer> getOddList() {
-        return oddList;
+        return even;
     }
 }
