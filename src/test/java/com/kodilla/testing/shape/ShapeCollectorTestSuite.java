@@ -46,4 +46,15 @@ public class ShapeCollectorTestSuite {
         assertEquals(null, shapeFigure);
     }
 
+    @Test
+    public void removeShapeReturnIt() {
+        //Given
+        Shape shape = new Circle ("Circle", 5);
+        //When
+        boolean result = collector.removeFigure(shape);
+        //Then
+        assertTrue(result);
+
+
+    }
 }
