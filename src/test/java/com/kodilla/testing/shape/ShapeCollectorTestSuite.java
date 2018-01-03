@@ -22,9 +22,15 @@ public class ShapeCollectorTestSuite {
     }*/
 
     @Test
-    public void returnNullFromEmptyCollector() {
-        Shape shapeFigure = collector.getFigure(0);
-        assertEquals(null, shapeFigure);
+    public void checkShapeExists(){
+        //when
+        Shape shape = new Circle("Circle", 4);
+        collector.addFigure(shape);
+
+        //given
+        boolean result = collector.addFigure(shape);
+        //then
+        assertTrue(result);
     }
 
     @Test
@@ -49,12 +55,17 @@ public class ShapeCollectorTestSuite {
     @Test
     public void removeShapeReturnIt() {
         //Given
-        Shape shape = new Circle ("Circle", 5);
+        Shape shape = new Circle("Circle", 4);
+        collector.addFigure(shape);
         //When
         boolean result = collector.removeFigure(shape);
         //Then
         assertTrue(result);
-
-
     }
+     @Test
+        public void returnNullFromEmptyCollector() {
+            Shape shapeFigure = collector.getFigure(0);
+            assertEquals(null, shapeFigure);
+        }
+
 }
