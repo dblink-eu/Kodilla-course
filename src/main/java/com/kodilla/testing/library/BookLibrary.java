@@ -11,10 +11,9 @@ public class BookLibrary {
     }
 
     public List<Book> listBooksWithCondition(String titleFragment) {
-        List<Book> bookList = new ArrayList<Book>();
-        Book book = new Book("The book title", "The book author", 2000);
-        bookList.add(book);
-
+        List<Book> bookList = libraryDatabase.listBooksWithCondition(titleFragment);
+        //Book book = new Book("The book title", "The book author", 2000);
+        //bookList.add(book);
         // temporary returning list of one book
         return bookList;
     }
