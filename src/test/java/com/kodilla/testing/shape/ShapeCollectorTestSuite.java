@@ -12,15 +12,8 @@ public class ShapeCollectorTestSuite {
     @Before
     public void setup() {
         collector = new ShapeCollector();
+
     }
-
-    /*@Test
-    public void addSingleShape(){
-        ShapeCollector collector = new ShapeCollector();
-        collector.addFigure(new Circle("Circle1", 4));
-        Assert.assertEquals(collector.getFigure(0));
-    }*/
-
     @Test
     public void addFigure() {
         //given
