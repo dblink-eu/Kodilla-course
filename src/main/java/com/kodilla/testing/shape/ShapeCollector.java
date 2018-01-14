@@ -33,5 +33,4 @@ public class ShapeCollector {
             System.out.println(figures.indexOf(item));
         }
     }
-
 }

@@ -8,7 +8,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.verify;
+
 
 public class BookDirectoryTestSuite {
     @Test
@@ -63,7 +66,19 @@ public class BookDirectoryTestSuite {
 
     @Test
     public void testListBooksWithConditionFragmentShorterThan3() {
-        assertTrue(false);
+        // Given
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        List<Book> resultListOf10Books = generateListOfNBooks(10);
+        when(libraryDatabaseMock.listBooksWithCondition(anyString()))
+                .thenReturn(resultListOf10Books);
+
+        // When
+        List<Book> theListOfBooks10 = bookLibrary.listBooksWithCondition("An");
+
+        // Then
+        assertEquals(0, theListOfBooks10.size());
+        verify(libraryDatabaseMock, times(0)).listBooksWithCondition(anyString());
     }
 
     @Test
@@ -72,11 +87,7 @@ public class BookDirectoryTestSuite {
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
         List<Book> resultListOf0Books = generateListOfNBooks(0);
-        List<Book> resultListOf1Books = generateListOfNBooks(1);
-        List<Book> resultListOf5Books = generateListOfNBooks(5);
         LibraryUser user = new LibraryUser("Heniek", "Bibliofil", "12345678");
-        LibraryUser user1 = new LibraryUser("Heniek1", "Bibliofil", "12345678");
-        LibraryUser user2 = new LibraryUser("Heniek2", "Bibliofil", "12345678");
         when(libraryDatabaseMock.listBooksInHandsOf(user)).thenReturn(resultListOf0Books);
         // When
         List<Book> theListOfBooks0 = bookLibrary.listBooksInHandsOfUser(user);
