@@ -28,9 +28,9 @@ public class ForumStatisticsTestSuite {
         //Given
         when(statisticMock.postsCount()).thenReturn(0);
         //when
-        int avgPostsPerUser = forumStatTest.getAvgPostPerUser();
+        forumStatTest.calculateAdvStatistics(statisticMock);
         //Then
-        assertEquals(0,avgPostsPerUser);
+        assertEquals(0,forumStatTest.getAvgPostPerUser());
     }
 
     @Test
@@ -38,7 +38,7 @@ public class ForumStatisticsTestSuite {
 
         //Given
         int commentsCountTest = 0;
-        ArrayList<String> usersNames = prepareUsers("User");
+        ArrayList<String> usersNames = prepareUsers();
         when(statisticMock.commentsCount()).thenReturn(commentsCountTest);
         when(statisticMock.usersNames()).thenReturn(usersNames);
         //When
@@ -87,7 +87,7 @@ public class ForumStatisticsTestSuite {
 
         int postsAmountTest = 1000;
         int commentsAmountTest = 0;
-        ArrayList<String> userList = prepareUsers("user");
+        ArrayList<String> userList = prepareUsers();
 
         when(statisticMock.postsCount()).thenReturn(postsAmountTest);
         when(statisticMock.commentsCount()).thenReturn(commentsAmountTest);

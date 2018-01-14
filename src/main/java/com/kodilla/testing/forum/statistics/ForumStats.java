@@ -9,6 +9,9 @@ public class ForumStats {
 
     private Statistics statistics;
     private int avgCommentsPerUser;
+    private int commentsAmount;
+    private int avgPostPerUser;
+    private int avgCommentsPerPost;;
 
     public ForumStats(Statistics statistics) {
         this.statistics = statistics;
@@ -25,19 +28,33 @@ public class ForumStats {
     }
 
     public int getCommentsAmount() {
-        int commentsAmount = statistics.commentsCount();
-        return commentsAmount;
+        return  statistics.commentsCount();
     }
 
+    public int getAvgCommentsPerUser() {
+        return avgCommentsPerUser;
+    }
+
+    public int getAvgPostPerUser() {
+        return avgPostPerUser;
+    }
+
+    public int getAvgCommentsPerPost() {
+        return avgCommentsPerPost;
+    }
+
+    public void calculateAdvStatistics(Statistics statistics) {
+        avgCommentsPerUser = countAvgCommentsPerUser();
+        avgCommentsPerPost = countAvgCommentsPerPost();
+        avgPostPerUser = countAvgPostPerUser();
+    }
     private int countAvgPostPerUser() {
-        int avgPostPerUser;
         if (getUserAmount()>0){
-            avgPostPerUser = getPostAmounts() / getUserAmount();
+            return getPostAmounts() / getUserAmount();
         } else {
             System.out.println("Dev by 0!");
-            avgPostPerUser=0;
+            return 0;
         }
-        return avgPostPerUser;
     }
 
     private int countAvgCommentsPerUser() {
@@ -54,20 +71,7 @@ public class ForumStats {
             System.out.println("Dev by 0!");
             return 0;
         } else {
-            int avgCommentsPerPost = getCommentsAmount() / getPostAmounts();
-            return avgCommentsPerPost;
+            return  getCommentsAmount() / getPostAmounts();
         }
     }
-
-    public void calculateAdvStatistics(Statistics statistics) {
-        avgCommentsPerUser = countAvgCommentsPerUser();
-
-      /*  statisticsList.add(getUserAmount());
-        statisticsList.add(getPostAmounts());
-        statisticsList.add(getCommentsAmount());
-        statisticsList.add(getAvgPostPerUser());
-        statisticsList.add(getAvgCommentsPerUser());
-        statisticsList.add(getAvgCommentsPerPost());*/
-    }
-
 }
