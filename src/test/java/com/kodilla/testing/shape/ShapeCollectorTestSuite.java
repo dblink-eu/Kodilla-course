@@ -22,15 +22,27 @@ public class ShapeCollectorTestSuite {
     }*/
 
     @Test
-    public void checkShapeExists(){
-        //when
+    public void addFigure() {
+        //given
         Shape shape = new Circle("Circle", 4);
+
+        //when
         collector.addFigure(shape);
 
-        //given
-        boolean result = collector.addFigure(shape);
         //then
-        assertTrue(result);
+        assertEquals(1,collector.figures.size());
+    }
+
+    @Test
+    public void removeFigure() {
+        //given
+        Shape shape = new Circle("Circle", 4);
+
+        //when
+        collector.removeFigure(shape);
+
+        //then
+        assertEquals(0,collector.figures.size());
     }
 
     @Test

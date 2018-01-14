@@ -4,15 +4,12 @@ import java.util.ArrayList;
 
 public class ShapeCollector {
 
-    private ArrayList<Shape> figures = new ArrayList<>();
+    ArrayList<Shape> figures = new ArrayList<>();
 
-    public boolean addFigure(Shape shape) {
-        boolean checkIfExists = false;
+    public void addFigure(Shape shape) {
         if (!figures.contains(shape)) {
             figures.add(shape);
-            checkIfExists=true;
         }
-        return checkIfExists;
     }
 
     public boolean removeFigure(Shape shape) {
@@ -32,8 +29,9 @@ public class ShapeCollector {
     }
 
     public void showFigures() {
-        for (Shape item  : figures) {
-             System.out.println(figures.indexOf(item));
+        for (Shape item : figures) {
+            System.out.println(figures.indexOf(item));
         }
     }
+
 }
