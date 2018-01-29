@@ -1,29 +1,28 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.iterate.NumbersGenerator;
-import com.kodilla.stream.lambda.*;
+import com.kodilla.stream.book.Book;
+import com.kodilla.stream.book.BookDirectory;
+import com.kodilla.stream.forumuser.Forum;
+import com.kodilla.stream.forumuser.ForumUser;
+
+
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class StreamMain {
     public static void main(String[] args) {
-        Processor processor = new Processor();
-        processor.execute(() -> System.out.println("This is an example text."));
 
-        //Zadanie 7.1
-        PoemBeautifier poemBeautifier = new PoemBeautifier();
-        String outputText = poemBeautifier.beautify("Ala ma kota", e -> ("ABC*" + e + "*ABC"));
-        System.out.println(outputText);
 
-        System.out.println(poemBeautifier.beautify("Ala ma kota", e -> ("_-_" + e.toUpperCase() + "_-_")));
+       Forum forum = new Forum();
+        Map<Integer, Object> theResultMapOfUsers = forum.getUserList().stream()
+                .filter(forumUser -> forumUser.getSex()=='M')
+                .filter(forumUser -> forumUser.getDateOfBirght().getYear()>1998)
+                .filter(forumUser -> forumUser.getAmmountOfPosts()>1)
+                .collect(Collectors.toMap(ForumUser::getId, forumuser -> forumuser));
 
-        System.out.println(poemBeautifier.beautify("Ala ma kota", e -> ("***" + e.toLowerCase() + "***")));
-
-        System.out.println(poemBeautifier.beautify("Ala ma kota", e -> ("***" + e.replace("a","&") + "***")));
-
-        System.out.println(poemBeautifier.beautify("Ala ma kota", e -> ("***" + e.substring(1,3) + "***")));
-
-        //Stream
-        System.out.println("Using Stream to generate even numbers from 1 to 20");
-        NumbersGenerator.generateEven(20);
-
+        System.out.println("# elements: " + theResultMapOfUsers.size());
+        theResultMapOfUsers.entrySet().stream()
+                    .map(entry -> entry.getKey() + " : " + entry.getValue())
+                    .forEach(System.out::println);
     }
 }
