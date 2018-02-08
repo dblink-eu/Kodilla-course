@@ -65,4 +65,6 @@ public class DbmanagerTestSuite {
         statement.close();
         Assert.assertEquals(2,counter);
     }
+
+
 }

@@ -22,5 +22,4 @@ public class OrderDto {
     public String getProductName() {
         return productName;
     }
-
 }
