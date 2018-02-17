@@ -1,6 +1,6 @@
 package com.kodilla.testing.forum.statistics;
 
-import com.sun.xml.internal.bind.v2.runtime.reflect.Lister;
+//import com.sun.xml.internal.bind.v2.runtime.reflect.Lister;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -3,4 +3,5 @@ include 'kodilla-exception'
 include 'kodilla-stream'
 include 'kodilla-jdbc'
 include 'kodilla-good-patterns'
+include 'kodilla-hibernate'
 

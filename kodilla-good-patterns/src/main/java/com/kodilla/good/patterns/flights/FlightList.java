@@ -7,13 +7,13 @@ public class FlightList {
 
     public List<Flight> getFlights() {
         List<Flight> flights = new ArrayList<>();
-        flights.add(new Flight(new Airport("Warsaw"), new Airport("Cracow")));
-        flights.add(new Flight(new Airport("Gdansk"), new Airport("Wroclaw")));
-        flights.add(new Flight(new Airport("Gdansk"), new Airport("Katowice")));
-        flights.add(new Flight(new Airport("Warsaw"), new Airport("Katowice")));
-        flights.add(new Flight(new Airport("Berlin"), new Airport("Warszawa")));
-        flights.add(new Flight(new Airport("Moscow"), new Airport("Cracow")));
-        flights.add(new Flight(new Airport("Moscow"), new Airport("Gdansk")));
+        flights.add(new Flight("Warsaw","Cracow"));
+        flights.add(new Flight("Gdansk","Wroclaw"));
+        flights.add(new Flight("Gdansk","Katowice"));
+        flights.add(new Flight("Warsaw","Katowice"));
+        flights.add(new Flight("Berlin","Warszawa"));
+        flights.add(new Flight("Moscow","Cracow"));
+        flights.add(new Flight("Moscow","Gdansk"));
 
         return new ArrayList<>(flights);
     }
